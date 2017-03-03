@@ -10,7 +10,7 @@
     if (typeof define === 'function' && define.amd) {
         // AMD. Make globaly available as well
         define(['moment', 'jquery'], function (moment, jquery) {
-            return (root.daterangepicker = factory(moment, jquery));
+            return (root.daterangepicker = factory(moment.default, jquery));
         });
     } else if (typeof module === 'object' && module.exports) {
         // Node / Browserify
@@ -20,7 +20,7 @@
             jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }
-        module.exports = factory(require('moment'), jQuery);
+        module.exports = factory(require('moment').default, jQuery);
     } else {
         // Browser globals
         root.daterangepicker = factory(root.moment, root.jQuery);
